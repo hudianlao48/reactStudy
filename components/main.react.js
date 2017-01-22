@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDom = require('react-dom');
-var styleSheet = require('../less/main.less');
+var StyleSheet = require('../less/main.css');
 
 var AppMainComponent = React.createClass({
 	render:function(){
