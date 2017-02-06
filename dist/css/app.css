@@ -1,0 +1,22 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url( ../images/2.jpg);
+}
+html h1,
+body h1 {
+  color: red;
+}
+html .myClass,
+body .myClass {
+  color: green;
+}
+._2N3-bX03LYkXUKCqOFaTdT {
+  color: blue;
+}
+._16MZkIQ1BhadLqjf_UJeat {
+  color: green;
+}

@@ -1,7 +1,12 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractLESS = new ExtractTextPlugin("../css/app.css");
+
 module.exports = {
-	entry: './components/main.react.js',
+	entry: './src/components/main.react.js',
 	output: {
-		filename: 'app.js'
+		path: __dirname + '/dist/js',
+		publicPath: __dirname + '/dist/',
+		filename: "app.js"
 	},
 	module: {
 		loaders: [
@@ -13,15 +18,21 @@ module.exports = {
 					presets: ['react'],
 				}
 			},
-		],
-		rules: [
 			{
-				test: /\.css$/,
-				use: [
-					{loader: "style-loader"},
-					{loader: "css-loader"},
-				],
+				test: /\.(png|jpg)$/,
+				loader: 'file-loader',
+				query: {
+					publicPath: ' ',
+					name: '../images/[name].[ext]',
+				}
 			},
-		]
-	}
+			{
+				test: /\.less$/,
+				use: extractLESS.extract(['css-loader', 'less-loader'])
+			},
+		],
+	},
+	plugins: [
+		extractLESS
+	]
 }
